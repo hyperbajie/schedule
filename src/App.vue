@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/task">Task</router-link>
-    </div> -->
-    <router-view/>
+    <div id="nav">
+      <a><router-link to="/home">Home</router-link> | </a>
+      <a><router-link to="/workspace">Workspace</router-link> | </a>
+      <a class="abandon"><router-link to="/task">Task</router-link></a>
+    </div>
+    <router-view class="content" />
   </div>
 </template>
 
@@ -14,19 +15,27 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  padding: 20px;
 }
 
 #nav {
-  padding: 30px;
+  background: #42b983;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 20px;
+  box-sizing: border-box;
 }
 
 #nav a {
+  font-size: 20px;
   font-weight: bold;
   color: #2c3e50;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: white;
+}
+
+.content {
+  height: calc(100% - 40px);
 }
 </style>

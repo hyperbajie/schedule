@@ -29,10 +29,22 @@ export default {
       ],
     };
   },
+  beforeRouteEnter(to, from, next) {
+    console.log("getin", to.params);
+    if( !to.params.id ) {
+      next("/workspace");
+      return;
+    }
+    next();
+  },
   methods: {
     handleClickTask(item) {
         
     },
+
+    handleClickTab() {
+
+    }
   },
 };
 </script>
