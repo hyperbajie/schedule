@@ -3,14 +3,8 @@
     <div class="function-btn-row">
       <el-button @click="handleAdd" type="primary" size="mini">创建</el-button>
     </div>
-    <div class="workspace-item-box">
-      <workspace-item
-        class="workspace-item"
-        v-for="item in dataList"
-        :key="item.id"
-        :item="item"
-        @click.native="handleClickItem(item)"
-      ></workspace-item>
+    <div class="workspace-item-container">
+      <workspace-item class="workspace-item" v-for="item in dataList" :key="item.id" :item="item" @click.native="handleClickItem(item)"></workspace-item>
     </div>
     <workspace-edit :visible.sync="editVisible"></workspace-edit>
   </div>
@@ -38,10 +32,12 @@ export default {
       this.dataList = [
         {
           title: "第一个工作区",
+          desc: "",
           id: 1,
         },
         {
           title: "第二个工作区",
+          desc: "",
           id: 2,
         },
       ];
@@ -65,14 +61,16 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  display: flex;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-wrap: wrap;
 }
 .function-btn-row {
   width: 100%;
   height: 50px;
 }
-.workspace-item-box {
+.workspace-item-container {
+  display: flex;
+  flex-wrap: wrap;
   .workspace-item {
     cursor: pointer;
     margin: 5px;

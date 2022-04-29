@@ -15,10 +15,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  width: 100%;
+  height: 100%;
 }
 
 #nav {
-  background: #42b983;
+  background: var(--color-common5);
   height: 40px;
   line-height: 40px;
   padding-left: 20px;
@@ -32,10 +34,11 @@
 }
 
 #nav a.router-link-exact-active {
-  color: white;
+  color: var(--color-white);
 }
 
 .content {
   height: calc(100% - 40px);
+  background-color: var(--color-common4);
 }
 </style>
