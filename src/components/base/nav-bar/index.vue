@@ -1,10 +1,9 @@
 <template>
   <div class="container">
     <span class="project-name">VueSchedule</span>
-    <el-popover placement="bottom-start" width="400" trigger="click" @show="workspaceVisible = true" @hide="workspaceVisible = false">
-      <span>nothing</span>
-      <span class="common-text-btn" :class="{ 'common-text-btn-selected': workspaceVisible }" slot="reference">工作区</span>
-    </el-popover>
+
+    <span class="common-text-btn" :class="{ 'common-text-btn-selected': workspaceVisible }" @click="handleClickWorkspace">工作区</span>
+
     <el-popover placement="bottom-start" width="400" trigger="click" @show="collectionVisible = true" @hide="collectionVisible = false">
       <span>nothing</span>
       <span class="common-text-btn" :class="{ 'common-text-btn-selected': collectionVisible }" slot="reference">加星</span>
@@ -19,6 +18,11 @@ export default {
       workspaceVisible: false,
       collectionVisible: false,
     };
+  },
+  methods: {
+    handleClickWorkspace() {
+      this.$router.push("/");
+    },
   },
 };
 </script>
@@ -35,5 +39,4 @@ export default {
   box-sizing: border-box;
   color: white;
 }
-
 </style>

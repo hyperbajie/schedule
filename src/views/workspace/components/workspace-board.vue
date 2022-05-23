@@ -1,9 +1,9 @@
 <template>
-  <div class="box">
+  <div class="box" @click="handleClickBoard">
     <div class="title-row">
       <span class="title">{{ data.title }}</span>
     </div>
-    <span class="star-icon" :class="{ 'el-icon-star-off': !data.star, 'el-icon-star-on': data.star }"></span>
+    <span @click.stop="handleClickStar" class="star-icon" :class="{ 'el-icon-star-off': !data.star, 'el-icon-star-on': data.star }"></span>
   </div>
 </template>
 
@@ -16,7 +16,13 @@ export default {
     },
   },
   methods: {
-    handleMouseOver() {},
+    handleClickBoard() {
+      this.$router.push(`/board/${this.data.id}`);
+    },
+    handleClickStar() {
+      alert(`click star ${this.data.id}`);
+      return false;
+    },
   },
 };
 </script>
