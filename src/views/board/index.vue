@@ -1,5 +1,5 @@
 <template>
-  <div>boardId: {{ boardId }}</div>
+  <div class="container">boardId: {{ boardId }}</div>
 </template>
 
 <script>
@@ -14,3 +14,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.container {
+  width: 1200px;
+  position: relative;
+  margin: 0 auto;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+</style>
