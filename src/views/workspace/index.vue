@@ -1,27 +1,25 @@
 <template>
-  <div class="app-container container">
-    <div class="function-btn-row">
-      <el-button @click="handleAdd" type="primary" size="mini">创建</el-button>
+  <div class="container">
+    <div class="header">
+      <span>您的工作区</span>
+      <span class="common-text-btn create-btn" @click="handleClickCreate">创建</span>
     </div>
-    <div class="workspace-item-container">
-      <workspace-item class="workspace-item" v-for="item in dataList" :key="item.id" :item="item" @click.native="handleClickItem(item)"></workspace-item>
+    <div class="content">
+      <Workspace v-for="item in dataList" :key="item.id" :workspaceData="item" />
     </div>
-    <workspace-edit :visible.sync="editVisible"></workspace-edit>
+    <WorkspaceCreate :visible.sync="createVisible" />
   </div>
 </template>
 
 <script>
-import WorkspaceItem from "./components/workspace-item.vue";
-import WorkspaceEdit from "./components/workspace-edit.vue";
+import Workspace from "./components/workspace.vue";
+import WorkspaceCreate from "./components/workspace-create.vue";
 export default {
-  components: {
-    WorkspaceItem,
-    WorkspaceEdit,
-  },
+  components: { Workspace, WorkspaceCreate },
   data() {
     return {
       dataList: [],
-      editVisible: false,
+      createVisible: false,
     };
   },
   mounted() {
@@ -31,29 +29,51 @@ export default {
     handleQuery() {
       this.dataList = [
         {
-          title: "第一个工作区",
-          desc: "",
+          title: "医枢科技前端小组",
           id: 1,
+          list: [
+            {
+              title: "前端任务",
+              id: "10001",
+              star: false,
+            },
+            {
+              title: "医保控费系统",
+              id: "10002",
+              star: false,
+            },
+            {
+              title: "单病种质量管理系统",
+              id: "10003",
+              star: false,
+            },
+          ],
         },
         {
-          title: "第二个工作区",
-          desc: "",
+          title: "medaxis",
           id: 2,
+          list: [
+            {
+              title: "前端任务",
+              id: "10001",
+              star: false,
+            },
+            {
+              title: "医保控费系统",
+              id: "10002",
+              star: false,
+            },
+            {
+              title: "单病种质量管理系统",
+              id: "10003",
+              star: false,
+            },
+          ],
         },
       ];
     },
-    handleAdd() {
-      console.log("创建");
-      this.editVisible = true;
-    },
-    handleClickItem(item) {
-      console.log("click item", item);
-      this.$router.push({
-        name: "Task",
-        params: {
-          id: item.id,
-        },
-      });
+    handleClickCreate() {
+      this.createVisible = true;
     },
   },
 };
@@ -61,19 +81,27 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  // display: flex;
-  // flex-wrap: wrap;
+  width: 1200px;
+  position: relative;
+  margin: 0 auto;
+  padding-top: 20px;
+  box-sizing: border-box;
 }
-.function-btn-row {
+.header {
   width: 100%;
-  height: 50px;
+  color: #5e6c84;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 40px;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.workspace-item-container {
-  display: flex;
-  flex-wrap: wrap;
-  .workspace-item {
-    cursor: pointer;
-    margin: 5px;
-  }
+.content {
+  width: 100%;
+}
+.create-btn {
+  float: right;
 }
 </style>

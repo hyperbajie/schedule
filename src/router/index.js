@@ -17,17 +17,12 @@ const routes = [
   {
     path: "/",
     name: "/",
-    redirect: "/home",
+    redirect: "/workspace",
   },
   {
     path: "/login",
     name: "Login",
     component: () => import("../views/login.vue"),
-  },
-  {
-    path: "/home",
-    name: "Home",
-    component: () => import("../views/home.vue"),
   },
   {
     path: "/task",

@@ -17,16 +17,28 @@ body {
   --color-white: #ffffff;
   --color-orange: #ff5252;
   --color-yellow: #ffe57f;
-
-  --color-common: #e6ee9c;
-  --color-common2: #aed581;
-  --color-common3: #66bb6a;
-  --color-common4: #dcedc8;
-  --color-common5: #42b983;
+  --color-green: rgb(56, 143, 80);
 }
 
 .app-container {
   padding: 20px;
   margin: 0;
   box-sizing: border-box;
+}
+
+.common-text-btn {
+  padding: 0 15px;
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 5px;
+  user-select: none;
+}
+.common-text-btn:hover {
+  background-color: rgba(221, 221, 221, 0.3);
+}
+.common-text-btn-selected {
+  background-color: rgba(221, 221, 221, 0.2);
 }
